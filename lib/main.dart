@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/config/size_config.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/new_register.dart';
 
 
 
@@ -63,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text(
-            '共同保有の森',
+            'ログイン画面',
             style: TextStyle(
               //色が黒
               color: Colors.black,
@@ -140,7 +141,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
                 onPressed: () {
-                  //MyDrawer.movePage(context, NewMember());
+                  MyDrawer.movePage(context, NewRegister());
                 },
               ),
             ],
