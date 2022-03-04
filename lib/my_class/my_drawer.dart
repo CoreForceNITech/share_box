@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Drawer{
+class MyDrawer{
   /*
   画面遷移するメソッド(片瀬)
   使い方:
