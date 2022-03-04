@@ -11,6 +11,8 @@ class _NewRegisterState extends State<NewRegister> {
   //文字をサーバーに送るために覚えておく変数
   final nitIdController = TextEditingController();
   String _nitId = '';
+  final majorController = TextEditingController();
+  String _major = '';
   final idController = TextEditingController();
   String _id = '';
   final passwordController = TextEditingController();
@@ -24,6 +26,7 @@ class _NewRegisterState extends State<NewRegister> {
   @override
   void dispose() {
     nitIdController.dispose();
+    majorController.dispose();
     idController.dispose();
     passwordController.dispose();
     rePasswordController.dispose();
@@ -80,39 +83,59 @@ class _NewRegisterState extends State<NewRegister> {
                     ),
                   ],
                 ),
-                TextFormField(
-                  controller: nitIdController,
-                  decoration: const InputDecoration(
-                    hintText: 'please your university e-mail',
-                    labelText: '学生メール',
-                  ),
-                ),
-                TextFormField(
-                  controller: idController,
-                  //制限文字数
-                  maxLength: 8,
-                  //入力可能キーボード
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    hintText: 'please your student number',
-                    labelText: 'ID(学籍番号)',
-                  ),
-                ),
-                TextFormField(
-                  controller: passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: 'please make password',
-                    labelText: 'パスワードの作成',
-                  ),
-                ),
-                TextFormField(
-                  controller: rePasswordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                    hintText: 'please enter your password again',
-                    labelText: 'パスワードの確認',
-                  ),
+                Column(
+                  children: <Widget>[
+                    if (_isCheck == true)
+                      TextFormField(
+                        controller: nitIdController,
+                        decoration: const InputDecoration(
+                          hintText: 'please your university e-mail',
+                          labelText: '学生メール',
+                        ),
+                        onChanged: (text) {
+                          if (text.isNotEmpty) {
+                            setState(() {
+                              _nitId = text;
+                            });
+                          }
+                        },
+                      ),
+                    if (_nitId.contains('8') || _nitId.contains('9'))
+                      TextFormField(
+                        controller: majorController,
+                        decoration: const InputDecoration(
+                          hintText: 'please your major',
+                          labelText: '主軸分野',
+                        ),
+                      ),
+                    TextFormField(
+                      controller: idController,
+                      //制限文字数
+                      maxLength: 8,
+                      //入力可能キーボード
+                      keyboardType: TextInputType.number,
+                      decoration: const InputDecoration(
+                        hintText: 'please your student number',
+                        labelText: 'ID(学籍番号)',
+                      ),
+                    ),
+                    TextFormField(
+                      controller: passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: 'please make password',
+                        labelText: 'パスワードの作成',
+                      ),
+                    ),
+                    TextFormField(
+                      controller: rePasswordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                        hintText: 'please enter your password again',
+                        labelText: 'パスワードの確認',
+                      ),
+                    ),
+                  ],
                 ),
                 RaisedButton(
                   child: const Text('送信'),
@@ -121,7 +144,13 @@ class _NewRegisterState extends State<NewRegister> {
                     _id = idController.text;
                     _password = passwordController.text;
                     _rePassword = rePasswordController.text;
-                    if (_isCheck == true &&_nitId != ''  && _nitId.contains('@')&&_id != '' && _password != '' && _rePassword != ''&& _password == _rePassword) {
+                    if (_isCheck == true &&
+                        _nitId != '' &&
+                        _nitId.contains('@') &&
+                        _id != '' &&
+                        _password != '' &&
+                        _rePassword != '' &&
+                        _password == _rePassword) {
                       //await MyDrawer.movePage(context, CompleteFirstRegister());
                     }
                   },
