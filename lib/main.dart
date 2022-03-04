@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/config/size_config.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/my_class/my_share.dart';
 import 'package:share_box/new_register.dart';
 
 
@@ -75,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //appbar上の戻るボタン無効化
           automaticallyImplyLeading: false,
           actions:[
-            //MyShare.myShare(),
+            MyShare.myShare(),
           ],
         ),
         body: Container(

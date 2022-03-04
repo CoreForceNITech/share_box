@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/my_class/my_share.dart';
 
 class NewRegister extends StatefulWidget {
   @override
@@ -47,7 +48,7 @@ class _NewRegisterState extends State<NewRegister> {
           ),
           //共有(share)のボタン
           actions: [
-            //MyShare.myShare(),
+            MyShare.myShare(),
           ],
         ),
         body: Container(
