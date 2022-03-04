@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:share_box/config/size_config.dart';
+import 'package:share_box/my_class/my_drawer.dart';
+
+
 
 void main() {
   runApp(const MyApp());
@@ -10,28 +14,20 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo!',
+      //demoの赤帯削除
+      debugShowCheckedModeBanner: false,
+      title: '教科書売買プラットフォーム',
       theme: ThemeData(
-
-        primarySwatch: Colors.blue,
+        //アプリ全体のテーマ色は緑
+        primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'LoginPage!'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
 
   @override
@@ -39,68 +35,118 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  //文字をサーバーに送るために覚えておく変数
+  final idController = TextEditingController();
+  String _id = '';
+  final passwordController = TextEditingController();
+  String _password = '';
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  //キーの保存用変数
+  final _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    idController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+    //画面サイズ管理
+    SizeConfig().init(context);
+    //web,Android上の戻るボタン無効化
+    return WillPopScope(
+      onWillPop: () async {
+        return false;
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            '共同保有の森',
+            style: TextStyle(
+              //色が黒
+              color: Colors.black,
+              //太め(boldがw700)
+              fontWeight: FontWeight.w800,
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+          ),
+          //appbar上の戻るボタン無効化
+          automaticallyImplyLeading: false,
+          actions:[
+            //MyShare.myShare(),
           ],
         ),
+        body: Container(
+          //画面を横一杯に使う
+          width: double.infinity,
+          //画面端の余白
+          padding: const EdgeInsets.all(8),
+          child: Column(
+            //横方向で真ん中
+            mainAxisAlignment: MainAxisAlignment.center,
+            //縦方向で真ん中
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'NITechマリフ',
+                style: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal! * 10,
+                    foreground: Paint()
+                      ..style = PaintingStyle.stroke
+                      ..strokeWidth = 3
+                      ..color = Colors.green),
+              ),
+              //idの入力フォーマット
+              TextFormField(
+                //最大入力可能文字数
+                maxLength: 8,
+                controller: idController,
+                //入力可能キーボード
+                keyboardType: TextInputType.number,
+                key: _formKey,
+                decoration: const InputDecoration(
+                  hintText: 'please your number',
+                  labelText: 'ID',
+                ),
+              ),
+              //パスワードの入力フォーマット
+              TextFormField(
+                controller: passwordController,
+                //伏字オン
+                obscureText: true,
+                decoration: const InputDecoration(
+                  hintText: 'please your password',
+                  labelText: 'Password',
+                ),
+              ),
+              RaisedButton(
+                child: const Text('ログイン'),
+                onPressed: () async {
+                  _id = idController.text;
+                  _password = passwordController.text;
+                  if (_id != '' && _password != '') {
+                    //遷移先のページが決まったら変更
+                    //await MyDrawer.movePage(context, AllItems());
+                  }
+                },
+              ),
+              TextButton(
+                child: const Text(
+                  '新規会員登録',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+                onPressed: () {
+                  //MyDrawer.movePage(context, NewMember());
+                },
+              ),
+            ],
+          ),
+        ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
