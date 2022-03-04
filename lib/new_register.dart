@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/my_class/my_drawer.dart';
-import 'package:share_box/my_class/my_share.dart';
 
 class NewRegister extends StatefulWidget {
   @override
@@ -41,19 +40,7 @@ class _NewRegisterState extends State<NewRegister> {
         return true;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            '新規会員登録',
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          //共有(share)のボタン
-          actions: [
-            MyShare.myShare(),
-          ],
-        ),
+        appBar: MyDrawer.myAppBar('新規会員登録'),
         body: Container(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(

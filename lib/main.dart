@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/config/size_config.dart';
 import 'package:share_box/my_class/my_drawer.dart';
-import 'package:share_box/my_class/my_share.dart';
 import 'package:share_box/new_register.dart';
-
-
 
 void main() {
   runApp(const MyApp());
@@ -63,22 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         return false;
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'ログイン画面',
-            style: TextStyle(
-              //色が黒
-              color: Colors.black,
-              //太め(boldがw700)
-              fontWeight: FontWeight.w800,
-            ),
-          ),
-          //appbar上の戻るボタン無効化
-          automaticallyImplyLeading: false,
-          actions:[
-            MyShare.myShare(),
-          ],
-        ),
+        appBar: MyDrawer.myAppBar('ログイン'),
         body: Container(
           //画面を横一杯に使う
           width: double.infinity,
