@@ -141,6 +141,7 @@ class _NewRegisterState extends State<NewRegister> {
                   child: const Text('送信'),
                   onPressed: () async {
                     _nitId = nitIdController.text;
+                    _major = majorController.text;
                     _id = idController.text;
                     _password = passwordController.text;
                     _rePassword = rePasswordController.text;
