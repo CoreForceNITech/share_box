@@ -42,7 +42,7 @@ class _NewRegisterState extends State<NewRegister> {
       child: Scaffold(
         appBar: MyDrawer.myAppBar('新規会員登録'),
         body: Container(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.all(8),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -87,14 +87,14 @@ class _NewRegisterState extends State<NewRegister> {
                           }
                         },
                       ),
-                    if ( _nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
+                    if (_nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
                       const Text(
                         '創造工に所属している1年後期以降の学生は、主軸分野を入力してください。',
                         style: TextStyle(
                           color: Colors.red,
                         ),
                       ),
-                    if ( _nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
+                    if (_nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
                       TextFormField(
                         controller: majorController,
                         decoration: const InputDecoration(
