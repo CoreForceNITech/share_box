@@ -5,7 +5,11 @@ import 'package:share_box/my_class/my_share.dart';
 
 class MyDrawer{
 
-  //自動ログインパスワード保管用
+  /*
+  自動ログインパスワード保管用(片瀬)
+  使い方:
+  storageを使いたいところに置く。
+   */
   static const storage = FlutterSecureStorage();
 
   /*
