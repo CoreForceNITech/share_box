@@ -87,7 +87,14 @@ class _NewRegisterState extends State<NewRegister> {
                           }
                         },
                       ),
-                    if (_nitId.contains('8') || _nitId.contains('9'))
+                    if ( _nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
+                      const Text(
+                        '創造工に所属している1年後期以降の学生は、主軸分野を入力してください。',
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                    if ( _nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
                       TextFormField(
                         controller: majorController,
                         decoration: const InputDecoration(

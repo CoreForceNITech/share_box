@@ -31,7 +31,7 @@ class MyDrawer{
         text,
         style: const TextStyle(
           color: Colors.black,
-          fontWeight: FontWeight.w800,
+          fontWeight: FontWeight.bold,
         ),
       ),
       //共有(share)のボタン
