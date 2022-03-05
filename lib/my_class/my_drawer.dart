@@ -64,19 +64,19 @@ class MyDrawer{
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.notifications_active),
+          icon: Icon(Icons.shopping_cart),
           label: '欲しいものリスト',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.search),
+          icon: Icon(Icons.add_box),
           label: '出品',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings_sharp),
+          icon: Icon(Icons.notifications_active),
           label: 'お知らせ',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.settings_sharp),
+          icon: Icon(Icons.account_circle),
           label: 'マイページ',
         ),
       ],
