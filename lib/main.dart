@@ -3,6 +3,7 @@ import 'package:share_box/config/size_config.dart';
 import 'package:share_box/home.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/new_register.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: () async {
                   _id = idController.text;
                   _password = passwordController.text;
-                  if (_id != '' && _password != '') {
+                  if (_id != '' && _password != '' && _password == await MyDrawer.storage.read(key:_id)) {
                     //遷移先のページが決まったら変更
                     await MyDrawer.movePage(context, Home());
                   }

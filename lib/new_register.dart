@@ -142,10 +142,11 @@ class _NewRegisterState extends State<NewRegister> {
                     if (_isCheck == true &&
                         _nitId != '' &&
                         _nitId.contains('@') &&
-                        _id != '' &&
+                        _id.length == 8 &&
                         _password != '' &&
                         _rePassword != '' &&
                         _password == _rePassword) {
+                      await MyDrawer.storage.write(key:_id,value:_password);
                       //await MyDrawer.movePage(context, CompleteFirstRegister());
                     }
                   },

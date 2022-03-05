@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:share_box/home.dart';
 import 'package:share_box/my_class/my_share.dart';
 
 class MyDrawer{
+
+  //自動ログインパスワード保管用
+  static const storage = FlutterSecureStorage();
+
   /*
   画面遷移するメソッド(片瀬)
   使い方:
