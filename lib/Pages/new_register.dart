@@ -42,6 +42,7 @@ class _NewRegisterState extends State<NewRegister> {
       child: Scaffold(
         appBar: MyDrawer.myAppBar('新規会員登録'),
         body: Container(
+          width: double.infinity,
           padding: const EdgeInsets.all(8),
           child: SingleChildScrollView(
             child: Column(

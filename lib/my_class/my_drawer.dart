@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:share_box/Pages/announcement.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/my_share.dart';
 
@@ -102,7 +103,7 @@ class MyDrawer {
           //movePage(context, SearchBookCollection());
         }
         if (_selectedIndex == 3 && _initIndex != 3) {
-          //movePage(context, Setting());
+          movePage(context, Announcement());
         }
         if (_selectedIndex == 4 && _initIndex != 4) {
           //movePage(context, Setting());

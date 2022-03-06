@@ -29,6 +29,7 @@ class _HomeState extends State<Home> {
       child: Scaffold(
         appBar: MyDrawer.myAppBar('Home'),
         body: Container(
+          width: double.infinity,
           padding: const EdgeInsets.all(8),
           child: SingleChildScrollView(
             child: Row(
