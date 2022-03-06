@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/config/size_config.dart';
-import 'package:share_box/home.dart';
+import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/my_drawer.dart';
-import 'package:share_box/new_register.dart';
+import 'package:share_box/Pages/new_register.dart';
 
 void main() {
   runApp(const MyApp());

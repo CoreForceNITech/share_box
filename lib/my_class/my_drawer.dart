@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:share_box/home.dart';
+import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/my_share.dart';
 
-class MyDrawer{
-
+class MyDrawer {
   /*
   自動ログインパスワード保管用(片瀬)
   使い方:
@@ -35,7 +34,7 @@ class MyDrawer{
   AppBarに表示したい文字をtextとして与える。
   *ログイン後とログイン前でAppBarを分ける場合は、こちらをログイン前のAppBarとしてください。
    */
-  static PreferredSizeWidget? myAppBar(String text){
+  static PreferredSizeWidget? myAppBar(String text) {
     return AppBar(
       title: Text(
         text,
@@ -63,7 +62,8 @@ class MyDrawer{
   お知らせ:3
   マイページ:4
    */
-  static Widget myBottomNavigationBar(BuildContext context, int _selectedIndex) {
+  static Widget myBottomNavigationBar(
+      BuildContext context, int _selectedIndex) {
     int _initIndex = _selectedIndex;
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,

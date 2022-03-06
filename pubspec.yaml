@@ -29,6 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+#追加した分
+  get: ^4.1.4
+  dots_indicator: ^2.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -63,6 +66,21 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+#追加した分
+  assets:
+    - assets/image/
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/font/Roboto-Regular.ttf
+          weight: 400
+        - asset: assets/font/Roboto-Medium.ttf
+          weight: 500
+        - asset: assets/font/Roboto-Bold.ttf
+          weight: 700
+        - asset: assets/font/Roboto-Black.ttf
+          weight: 900
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
