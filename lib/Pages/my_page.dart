@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/Pages/main.dart';
+import 'package:share_box/Pages/mypage_pages/account_information.dart';
+import 'package:share_box/Pages/mypage_pages/browsing_history.dart';
+import 'package:share_box/Pages/mypage_pages/exhibited_products.dart';
+import 'package:share_box/Pages/mypage_pages/inquiry.dart';
+import 'package:share_box/Pages/mypage_pages/privacy_policy.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 
 class MyPage extends StatefulWidget {
@@ -40,7 +45,7 @@ class _MyPageState extends State<MyPage> {
                           title: const Text('閲覧履歴'),
                           trailing: const Icon(Icons.arrow_forward_ios_sharp),
                           onTap: () {
-                            //MyDrawer.movePage(context, IntroductNewBooks());
+                            MyDrawer.movePage(context, BrowsingHistory());
                           },
                         ),
                       ),
@@ -49,7 +54,7 @@ class _MyPageState extends State<MyPage> {
                           title: const Text('出品した商品'),
                           trailing: const Icon(Icons.arrow_forward_ios_sharp),
                           onTap: () {
-                            //MyDrawer.movePage(context, IntroductNewBooks());
+                            MyDrawer.movePage(context, ExhibitedProducts());
                           },
                         ),
                       ),
@@ -58,7 +63,7 @@ class _MyPageState extends State<MyPage> {
                           title: const Text('アカウント情報'),
                           trailing: const Icon(Icons.arrow_forward_ios_sharp),
                           onTap: () {
-                            //MyDrawer.movePage(context, IntroductNewBooks());
+                            MyDrawer.movePage(context, AccountInformation());
                           },
                         ),
                       ),
@@ -74,8 +79,7 @@ class _MyPageState extends State<MyPage> {
                     ),
                   ),
                   onPressed: () {
-                    MyDrawer.movePage(
-                        context, const MyHomePage(title: 'LoginPage!'));
+                    MyDrawer.movePage(context, PrivacyPolicy());
                   },
                 ),
                 TextButton(
@@ -87,8 +91,7 @@ class _MyPageState extends State<MyPage> {
                     ),
                   ),
                   onPressed: () {
-                    MyDrawer.movePage(
-                        context, const MyHomePage(title: 'LoginPage!'));
+                    MyDrawer.movePage(context, Inquiry());
                   },
                 ),
                 TextButton(
