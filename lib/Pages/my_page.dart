@@ -26,6 +26,71 @@ class _MyPageState extends State<MyPage> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: ListView(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: EdgeInsets.zero,
+                    children: [
+                      Card(
+                        child: ListTile(
+                          title: const Text('閲覧履歴'),
+                          trailing: const Icon(Icons.arrow_forward_ios_sharp),
+                          onTap: () {
+                            //MyDrawer.movePage(context, IntroductNewBooks());
+                          },
+                        ),
+                      ),
+                      Card(
+                        child: ListTile(
+                          title: const Text('出品した商品'),
+                          trailing: const Icon(Icons.arrow_forward_ios_sharp),
+                          onTap: () {
+                            //MyDrawer.movePage(context, IntroductNewBooks());
+                          },
+                        ),
+                      ),
+                      Card(
+                        child: ListTile(
+                          title: const Text('アカウント情報'),
+                          trailing: const Icon(Icons.arrow_forward_ios_sharp),
+                          onTap: () {
+                            //MyDrawer.movePage(context, IntroductNewBooks());
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                TextButton(
+                  child: const Text(
+                    '利用規約/プライバシーポリシー',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: () {
+                    MyDrawer.movePage(
+                        context, const MyHomePage(title: 'LoginPage!'));
+                  },
+                ),
+                TextButton(
+                  child: const Text(
+                    'お問い合せ',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: () {
+                    MyDrawer.movePage(
+                        context, const MyHomePage(title: 'LoginPage!'));
+                  },
+                ),
                 TextButton(
                   child: const Text(
                     'ログアウト',
@@ -35,7 +100,8 @@ class _MyPageState extends State<MyPage> {
                     ),
                   ),
                   onPressed: () {
-                    MyDrawer.movePage(context, const MyHomePage(title: 'LoginPage!'));
+                    MyDrawer.movePage(
+                        context, const MyHomePage(title: 'LoginPage!'));
                   },
                 ),
               ],
