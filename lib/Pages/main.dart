@@ -1,10 +1,22 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:share_box/config/size_config.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/Pages/new_register.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 void main() {
+  //エラーを検出したら強制修了
+  FlutterError.onError = (FlutterErrorDetails details) {
+    FlutterError.presentError(details);
+    if (kReleaseMode) {
+      exit(1);
+    }
+  };
   runApp(const MyApp());
 }
 
@@ -13,7 +25,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       //demoの赤帯削除
       debugShowCheckedModeBanner: false,
       title: '教科書売買プラットフォーム',
@@ -66,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //画面を横一杯に使う
           width: double.infinity,
           //画面端の余白
-          padding: const EdgeInsets.all(8),
+          padding: EdgeInsets.all(Dimensions.width20),
           child: Column(
             //横方向で真ん中
             mainAxisAlignment: MainAxisAlignment.center,
