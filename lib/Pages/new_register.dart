@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 class NewRegister extends StatefulWidget {
   @override
@@ -43,14 +44,15 @@ class _NewRegisterState extends State<NewRegister> {
         appBar: MyDrawer.myAppBar('新規会員登録'),
         body: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(8),
+          padding: MyDrawer.paddingSize(),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const Text(
+                Text(
                   '現時点では、このサービスを利用できるのは名工大生のみです。',
                   style: TextStyle(
+                    fontSize: Dimensions.font14,
                     color: Colors.red,
                   ),
                 ),
@@ -66,8 +68,11 @@ class _NewRegisterState extends State<NewRegister> {
                       },
                     ),
                     const SizedBox(width: 5),
-                    const Text(
+                    Text(
                       'あなたは名工大の学生ですか。',
+                      style: TextStyle(
+                        fontSize: Dimensions.font14,
+                      ),
                     ),
                   ],
                 ),
@@ -89,10 +94,11 @@ class _NewRegisterState extends State<NewRegister> {
                         },
                       ),
                     if (_nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
-                      const Text(
+                      Text(
                         '創造工に所属している1年後期以降の学生は、主軸分野を入力してください。',
                         style: TextStyle(
                           color: Colors.red,
+                          fontSize: Dimensions.font14,
                         ),
                       ),
                     if (_nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
@@ -133,7 +139,12 @@ class _NewRegisterState extends State<NewRegister> {
                   ],
                 ),
                 RaisedButton(
-                  child: const Text('送信'),
+                  child: Text(
+                    '送信',
+                    style: TextStyle(
+                      fontSize: Dimensions.font16,
+                    ),
+                  ),
                   onPressed: () async {
                     _nitId = nitIdController.text;
                     _major = majorController.text;
@@ -147,7 +158,7 @@ class _NewRegisterState extends State<NewRegister> {
                         _password != '' &&
                         _rePassword != '' &&
                         _password == _rePassword) {
-                      await MyDrawer.storage.write(key:_id,value:_password);
+                      await MyDrawer.storage.write(key: _id, value: _password);
                       //await MyDrawer.movePage(context, CompleteFirstRegister());
                     }
                   },
