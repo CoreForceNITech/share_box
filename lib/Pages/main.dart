@@ -78,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
           //画面を横一杯に使う
           width: double.infinity,
           //画面端の余白
-          padding: EdgeInsets.all(Dimensions.width20),
+          padding: MyDrawer.paddingSize(),
           child: Column(
             //横方向で真ん中
             mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               Text(
                 'NITechマリフ',
                 style: TextStyle(
-                    fontSize: SizeConfig.blockSizeHorizontal! * 10,
+                    fontSize: Dimensions.font52,
                     foreground: Paint()
                       ..style = PaintingStyle.stroke
                       ..strokeWidth = 3
@@ -118,7 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               RaisedButton(
-                child: const Text('ログイン'),
+                child: Text(
+                  'ログイン',
+                  style: TextStyle(
+                    fontSize: Dimensions.font16,
+                  ),
+                ),
                 onPressed: () async {
                   _id = idController.text;
                   _password = passwordController.text;
@@ -128,9 +133,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 },
               ),
               TextButton(
-                child: const Text(
+                child: Text(
                   '新規会員登録',
                   style: TextStyle(
+                    fontSize: Dimensions.font16,
                     color: Colors.blue,
                     decoration: TextDecoration.underline,
                   ),

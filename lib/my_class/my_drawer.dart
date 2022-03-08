@@ -4,8 +4,17 @@ import 'package:share_box/Pages/announcement.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/Pages/my_page.dart';
 import 'package:share_box/my_class/my_share.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 class MyDrawer {
+  /*
+  paddingのサイズ定義用(片瀬)
+  統一のPaddingサイズの定義
+  使い方:
+   */
+  static EdgeInsets paddingSize(){
+    return EdgeInsets.all(Dimensions.width20);
+  }
   /*
   自動ログインパスワード保管用(片瀬)
   使い方:
