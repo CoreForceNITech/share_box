@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/my_page.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 class PrivacyPolicy extends StatefulWidget {
   @override
@@ -21,12 +22,15 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
         body: Container(
           width: double.infinity,
           //画面端の余白
-          padding: const EdgeInsets.all(8),
+          padding: MyDrawer.paddingSize(),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                const Text(
+                Text(
                   'まだプライバシーポリシーを登録していません。',
+                  style: TextStyle(
+                    fontSize: Dimensions.font14,
+                  ),
                 ),
               ],
             ),

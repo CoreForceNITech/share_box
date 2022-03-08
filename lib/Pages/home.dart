@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/config/size_config.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -30,12 +31,12 @@ class _HomeState extends State<Home> {
         appBar: MyDrawer.myAppBar('Home'),
         body: Container(
           width: double.infinity,
-          padding: const EdgeInsets.all(8),
+          padding: MyDrawer.paddingSize(),
           child: SingleChildScrollView(
             child: Row(
               children: <Widget>[
                 SizedBox(
-                  width: SizeConfig.blockSizeHorizontal! *75,
+                  width: Dimensions.width603,
                   child: TextFormField(
                     controller: searchWordController,
                     decoration: const InputDecoration(
@@ -45,7 +46,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  width: SizeConfig.blockSizeHorizontal! * 15,
+                  width: Dimensions.width120,
                   child: RaisedButton(
                     child: const Icon(
                       Icons.search,

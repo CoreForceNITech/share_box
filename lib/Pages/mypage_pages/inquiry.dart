@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/my_page.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 class Inquiry extends StatefulWidget {
   @override
@@ -21,12 +22,15 @@ class _InquiryState extends State<Inquiry> {
         body: Container(
           width: double.infinity,
           //画面端の余白
-          padding: const EdgeInsets.all(8),
+          padding: MyDrawer.paddingSize(),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                const Text(
+                Text(
                   '現在お問い合わせできません。',
+                  style: TextStyle(
+                    fontSize: Dimensions.font14,
+                  ),
                 ),
               ],
             ),

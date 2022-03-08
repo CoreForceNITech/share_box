@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/my_drawer.dart';
+import 'package:share_box/utils/dimensions.dart';
 
 class Announcement extends StatefulWidget {
   @override
@@ -22,12 +23,15 @@ class _AnnouncementState extends State<Announcement> {
         body: Container(
           width: double.infinity,
           //画面端の余白
-          padding: const EdgeInsets.all(8),
+          padding: MyDrawer.paddingSize(),
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                const Text(
+                Text(
                   '現在お知らせはありません。',
+                  style: TextStyle(
+                    fontSize: Dimensions.font14,
+                  ),
                 ),
               ],
             ),

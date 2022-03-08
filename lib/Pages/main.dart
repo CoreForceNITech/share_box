@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:share_box/config/size_config.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/Pages/new_register.dart';
@@ -65,8 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    //画面サイズ管理
-    SizeConfig().init(context);
     //web,Android上の戻るボタン無効化
     return WillPopScope(
       onWillPop: () async {
