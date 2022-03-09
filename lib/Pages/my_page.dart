@@ -112,6 +112,12 @@ class _MyPageState extends State<MyPage> {
                     MyDrawer.movePage(context, Inquiry());
                   },
                 ),
+                Text(
+                  'Ver1.0.0',
+                  style: TextStyle(
+                    fontSize: Dimensions.font14,
+                  ),
+                ),
                 TextButton(
                   child: Text(
                     'ログアウト',
