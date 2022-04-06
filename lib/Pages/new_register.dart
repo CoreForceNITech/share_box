@@ -117,7 +117,7 @@ class _NewRegisterState extends State<NewRegister> {
                       keyboardType: TextInputType.number,
                       decoration: const InputDecoration(
                         hintText: 'please your student number',
-                        labelText: 'ID(学籍番号)',
+                        labelText: '学籍番号',
                       ),
                     ),
                     TextFormField(

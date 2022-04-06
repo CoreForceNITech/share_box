@@ -1,14 +1,22 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_box/Pages/home.dart';
+import 'package:share_box/my_class/firebase_auth_error.dart';
+import 'package:share_box/my_class/firebase_auth_login.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/Pages/new_register.dart';
 import 'package:share_box/utils/dimensions.dart';
 
-void main() {
+final FirebaseAuth auth = FirebaseAuth.instance;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   //エラーを検出したら強制修了
   FlutterError.onError = (FlutterErrorDetails details) {
     FlutterError.presentError(details);
@@ -54,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //キーの保存用変数
   final _formKey = GlobalKey<FormState>();
+  final _formPWKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -76,73 +85,96 @@ class _MyHomePageState extends State<MyHomePage> {
           width: double.infinity,
           //画面端の余白
           padding: MyDrawer.paddingSize(),
-          child: Column(
-            //横方向で真ん中
-            mainAxisAlignment: MainAxisAlignment.center,
-            //縦方向で真ん中
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'NITechマリフ',
-                style: TextStyle(
-                    fontSize: Dimensions.font52,
-                    foreground: Paint()
-                      ..style = PaintingStyle.stroke
-                      ..strokeWidth = 3
-                      ..color = Colors.green),
-              ),
-              //idの入力フォーマット
-              TextFormField(
-                //最大入力可能文字数
-                maxLength: 8,
-                controller: idController,
-                //入力可能キーボード
-                keyboardType: TextInputType.number,
-                key: _formKey,
-                decoration: const InputDecoration(
-                  hintText: 'please your number',
-                  labelText: 'ID',
-                ),
-              ),
-              //パスワードの入力フォーマット
-              TextFormField(
-                controller: passwordController,
-                //伏字オン
-                obscureText: true,
-                decoration: const InputDecoration(
-                  hintText: 'please your password',
-                  labelText: 'Password',
-                ),
-              ),
-              RaisedButton(
-                child: Text(
-                  'ログイン',
+          child: SingleChildScrollView(
+            child: Column(
+              //横方向で真ん中
+              mainAxisAlignment: MainAxisAlignment.center,
+              //縦方向で真ん中
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'NITechマリフ',
                   style: TextStyle(
-                    fontSize: Dimensions.font16,
+                      fontSize: Dimensions.font52,
+                      foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 3
+                        ..color = Colors.green),
+                ),
+                //idの入力フォーマット
+                TextFormField(
+                  controller: idController,
+                  key: _formKey,
+                  decoration: const InputDecoration(
+                    hintText: 'please your student mail',
+                    labelText: '学生メール',
                   ),
                 ),
-                onPressed: () async {
-                  _id = idController.text;
-                  _password = passwordController.text;
-                  if (_id != '' && _password != '') {
+                //パスワードの入力フォーマット
+                TextFormField(
+                  controller: passwordController,
+                  key: _formPWKey,
+                  //伏字オン
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: 'please your password',
+                    labelText: 'Password',
+                  ),
+                ),
+                RaisedButton(
+                  child: Text(
+                    'ログイン',
+                    style: TextStyle(
+                      fontSize: Dimensions.font16,
+                    ),
+                  ),
+                  onPressed: () async {
+                    //_formKey.currentState!.validate();
+                    //_formPWKey.currentState!.validate();
+                    _id = idController.text;
+                    _password = passwordController.text;
+                    final FirebaseAuthResultStatus signInResult =
+                        await FirebaseLogin.signInId(_id, _password);
+                    if (signInResult != FirebaseAuthResultStatus.Successful) {
+                      final errorMessage =
+                          FirebaseAuthExceptionHandler.exceptionMessage(
+                              signInResult);
+                      FirebaseLogin.showErrorDialog(context, errorMessage);
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(content: Text('Login successful')));
+                      await MyDrawer.movePage(context, Home());
+                    }
+                  },
+                ),
+                TextButton(
+                  child: Text(
+                    '新規会員登録',
+                    style: TextStyle(
+                      fontSize: Dimensions.font16,
+                      color: Colors.blue,
+                      decoration: TextDecoration.underline,
+                    ),
+                  ),
+                  onPressed: () {
+                    MyDrawer.movePage(context, NewRegister());
+                  },
+                ),
+                RaisedButton(
+                  child: Text(
+                    'デバック用遷移ボタン',
+                    style: TextStyle(
+                      fontSize: Dimensions.font16,
+                    ),
+                  ),
+                  onPressed: () async {
+                    _id = idController.text;
+                    _password = passwordController.text;
                     await MyDrawer.movePage(context, Home());
-                  }
-                },
-              ),
-              TextButton(
-                child: Text(
-                  '新規会員登録',
-                  style: TextStyle(
-                    fontSize: Dimensions.font16,
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
-                  ),
+                  },
                 ),
-                onPressed: () {
-                  MyDrawer.movePage(context, NewRegister());
-                },
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
