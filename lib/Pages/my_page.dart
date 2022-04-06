@@ -46,7 +46,7 @@ class _MyPageState extends State<MyPage> {
                           title: Text(
                             '閲覧履歴',
                             style: TextStyle(
-                              fontSize: Dimensions.font14,
+                              fontSize: Dimensions.font16,
                             ),
                           ),
                           trailing: const Icon(Icons.arrow_forward_ios_sharp),
@@ -60,7 +60,7 @@ class _MyPageState extends State<MyPage> {
                           title: Text(
                             '出品した商品',
                             style: TextStyle(
-                              fontSize: Dimensions.font14,
+                              fontSize: Dimensions.font16,
                             ),
                           ),
                           trailing: const Icon(Icons.arrow_forward_ios_sharp),
@@ -74,7 +74,7 @@ class _MyPageState extends State<MyPage> {
                           title: Text(
                             'アカウント情報',
                             style: TextStyle(
-                              fontSize: Dimensions.font14,
+                              fontSize: Dimensions.font16,
                             ),
                           ),
                           trailing: const Icon(Icons.arrow_forward_ios_sharp),
@@ -92,7 +92,7 @@ class _MyPageState extends State<MyPage> {
                     style: TextStyle(
                       color: Colors.blue,
                       decoration: TextDecoration.underline,
-                      fontSize: Dimensions.font14,
+                      fontSize: Dimensions.font16,
                     ),
                   ),
                   onPressed: () {
@@ -105,7 +105,7 @@ class _MyPageState extends State<MyPage> {
                     style: TextStyle(
                       color: Colors.blue,
                       decoration: TextDecoration.underline,
-                      fontSize: Dimensions.font14,
+                      fontSize: Dimensions.font16,
                     ),
                   ),
                   onPressed: () {
@@ -115,7 +115,7 @@ class _MyPageState extends State<MyPage> {
                 Text(
                   'Ver1.0.0',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                   ),
                 ),
                 TextButton(
@@ -124,7 +124,7 @@ class _MyPageState extends State<MyPage> {
                     style: TextStyle(
                       color: Colors.blue,
                       decoration: TextDecoration.underline,
-                      fontSize: Dimensions.font14,
+                      fontSize: Dimensions.font16,
                     ),
                   ),
                   onPressed: () {

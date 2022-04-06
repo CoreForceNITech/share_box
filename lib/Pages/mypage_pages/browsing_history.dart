@@ -29,7 +29,7 @@ class _BrowsingHistoryState extends State<BrowsingHistory> {
                 Text(
                   'まだ閲覧していません。',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                   ),
                 ),
               ],

@@ -30,7 +30,7 @@ class _AnnouncementState extends State<Announcement> {
                 Text(
                   '現在お知らせはありません。',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                   ),
                 ),
               ],

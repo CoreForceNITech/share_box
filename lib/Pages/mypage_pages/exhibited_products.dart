@@ -29,7 +29,7 @@ class _ExhibitedProductsState extends State<ExhibitedProducts> {
                 Text(
                   'まだ出品していません。',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                   ),
                 ),
               ],

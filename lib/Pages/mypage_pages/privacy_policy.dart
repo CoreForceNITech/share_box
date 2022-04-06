@@ -29,7 +29,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                 Text(
                   'まだプライバシーポリシーを登録していません。',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                   ),
                 ),
               ],

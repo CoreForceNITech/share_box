@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "619101564199",
+    "project_id": "share-box2",
+    "storage_bucket": "share-box2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619101564199:android:5fe74329d420032dfc8d02",
+        "android_client_info": {
+          "package_name": "com.example.share_box"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619101564199-n9btg51bebsqkt1mctmik272l4kru0l4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg7HHzyW0OeSTvjzKK-7kvya8jTH2d6kY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619101564199-n9btg51bebsqkt1mctmik272l4kru0l4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619101564199:android:167e448ce63cdf23fc8d02",
+        "android_client_info": {
+          "package_name": "com.share_boxs.CoreForce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619101564199-n9btg51bebsqkt1mctmik272l4kru0l4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg7HHzyW0OeSTvjzKK-7kvya8jTH2d6kY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619101564199-n9btg51bebsqkt1mctmik272l4kru0l4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

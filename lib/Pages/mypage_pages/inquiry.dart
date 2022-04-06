@@ -29,7 +29,7 @@ class _InquiryState extends State<Inquiry> {
                 Text(
                   '現在お問い合わせできません。',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                   ),
                 ),
               ],
