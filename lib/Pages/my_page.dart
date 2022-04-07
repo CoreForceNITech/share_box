@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/home.dart';
+import 'package:share_box/Pages/login.dart';
 import 'package:share_box/Pages/main.dart';
 import 'package:share_box/Pages/mypage_pages/account_information.dart';
 import 'package:share_box/Pages/mypage_pages/browsing_history.dart';
@@ -8,6 +10,8 @@ import 'package:share_box/Pages/mypage_pages/inquiry.dart';
 import 'package:share_box/Pages/mypage_pages/privacy_policy.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/utils/dimensions.dart';
+
+final FirebaseAuth auth = FirebaseAuth.instance;
 
 class MyPage extends StatefulWidget {
   @override
@@ -127,9 +131,13 @@ class _MyPageState extends State<MyPage> {
                       fontSize: Dimensions.font16,
                     ),
                   ),
-                  onPressed: () {
+                  onPressed: () async{
+                    await auth.signOut();
+                    if (auth.currentUser == null) {
+                      print('ログアウトしました！');
+                    }
                     MyDrawer.movePage(
-                        context, const MyHomePage(title: 'LoginPage!'));
+                        context, Login());
                   },
                 ),
               ],
