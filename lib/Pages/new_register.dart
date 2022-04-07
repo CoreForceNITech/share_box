@@ -1,10 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/main.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/utils/dimensions.dart';
-
-final FirebaseAuth auth = FirebaseAuth.instance;
 
 class NewRegister extends StatefulWidget {
   @override
@@ -155,28 +152,28 @@ class _NewRegisterState extends State<NewRegister> {
                     _id = idController.text;
                     _password = passwordController.text;
                     _rePassword = rePasswordController.text;
-                      if (_isCheck == true &&
-                          _nitId != '' &&
-                          _nitId.contains('@') &&
-                          _id.length == 8 &&
-                          _password != '' &&
-                          _rePassword != '' &&
-                          _password == _rePassword) {
-                        try {
-                          await auth.createUserWithEmailAndPassword(
-                            email: _nitId,
-                            password: _password,
-                          );
-                          await MyDrawer.storage.write(
-                              key: _id, value: _password);
-                          await MyDrawer.movePage(context, const MyHomePage(
-                              title: 'LoginPage!'));
-                        } catch (e) {
-                          print(e.toString());
-                        }
-                      }else{
-                        print("入力が不正です。");
+                    if (_isCheck == true &&
+                        _nitId != '' &&
+                        _nitId.contains('@') &&
+                        _id.length == 8 &&
+                        _password != '' &&
+                        _rePassword != '' &&
+                        _password == _rePassword) {
+                      try {
+                        await auth.createUserWithEmailAndPassword(
+                          email: _nitId,
+                          password: _password,
+                        );
+                        await MyDrawer.storage
+                            .write(key: _id, value: _password);
+                        await MyDrawer.movePage(
+                            context, const MyHomePage(title: 'LoginPage!'));
+                      } catch (e) {
+                        print(e.toString());
                       }
+                    } else {
+                      print("入力が不正です。");
+                    }
                   },
                 ),
               ],

@@ -9,7 +9,6 @@ class Announcement extends StatefulWidget {
 }
 
 class _AnnouncementState extends State<Announcement> {
-
   @override
   Widget build(BuildContext context) {
     //web,Android上の戻るボタン

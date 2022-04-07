@@ -1,14 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 enum FirebaseAuthResultStatus {
+  // ignore: constant_identifier_names
   Successful,
+  // ignore: constant_identifier_names
   EmailAlreadyExists,
+  // ignore: constant_identifier_names
   WrongPassword,
+  // ignore: constant_identifier_names
   InvalidEmail,
+  // ignore: constant_identifier_names
   UserNotFound,
+  // ignore: constant_identifier_names
   UserDisabled,
+  // ignore: constant_identifier_names
   OperationNotAllowed,
+  // ignore: constant_identifier_names
   TooManyRequests,
+  // ignore: constant_identifier_names
   Undefined,
 }
 
@@ -68,7 +77,7 @@ class FirebaseAuthExceptionHandler {
         message = '指定されたユーザーはこの操作を許可していません。';
         break;
       case FirebaseAuthResultStatus.TooManyRequests:
-        message = '指定されたユーザーはこの操作を許可していません。';
+        message = '要求が多すぎます。';
         break;
       case FirebaseAuthResultStatus.Undefined:
         message = '不明なエラーが発生しました。';

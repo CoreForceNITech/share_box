@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/Pages/new_register.dart';
@@ -6,8 +5,6 @@ import 'package:share_box/my_class/firebase_auth_error.dart';
 import 'package:share_box/my_class/firebase_auth_login.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 import 'package:share_box/utils/dimensions.dart';
-
-final FirebaseAuth auth = FirebaseAuth.instance;
 
 class Login extends StatefulWidget {
   @override
@@ -93,13 +90,12 @@ class _LoginState extends State<Login> {
                     //フォームの入力内容を代入
                     _id = idController.text;
                     _password = passwordController.text;
-
                     final FirebaseAuthResultStatus signInResult =
-                    await FirebaseLogin.signInId(_id, _password);
+                        await FirebaseLogin.signInId(_id, _password);
                     if (signInResult != FirebaseAuthResultStatus.Successful) {
                       final errorMessage =
-                      FirebaseAuthExceptionHandler.exceptionMessage(
-                          signInResult);
+                          FirebaseAuthExceptionHandler.exceptionMessage(
+                              signInResult);
                       FirebaseLogin.showErrorDialog(context, errorMessage);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -119,19 +115,6 @@ class _LoginState extends State<Login> {
                   ),
                   onPressed: () {
                     MyDrawer.movePage(context, NewRegister());
-                  },
-                ),
-                RaisedButton(
-                  child: Text(
-                    'デバック用遷移ボタン',
-                    style: TextStyle(
-                      fontSize: Dimensions.font16,
-                    ),
-                  ),
-                  onPressed: () async {
-                    _id = idController.text;
-                    _password = passwordController.text;
-                    await MyDrawer.movePage(context, Home());
                   },
                 ),
               ],

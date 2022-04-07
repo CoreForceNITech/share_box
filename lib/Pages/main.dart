@@ -8,19 +8,10 @@ import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/Pages/login.dart';
+import 'package:share_box/my_class/firebase_auth_login.dart';
 import 'package:share_box/my_class/my_drawer.dart';
 
 final FirebaseAuth auth = FirebaseAuth.instance;
-
-// 更新可能なデータ
-class UserState extends ChangeNotifier {
-  User? _user;
-
-  void setUser(User newUser) {
-    _user = newUser;
-    notifyListeners();
-  }
-}
 
 void main() async {
   //firebaseの呼び出し
@@ -33,18 +24,16 @@ void main() async {
       exit(1);
     }
   };
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
-
-  final UserState userState = UserState();
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<UserState>(
-      create: (context) => userState,
+      create: (context) => UserState(),
       child: GetMaterialApp(
         //demoの赤帯削除
         debugShowCheckedModeBanner: false,
@@ -53,7 +42,7 @@ class MyApp extends StatelessWidget {
           //アプリ全体のテーマ色は緑
           primarySwatch: Colors.green,
         ),
-        home: MyHomePage(title: 'StartPage!'),
+        home: const MyHomePage(title: 'StartPage!'),
       ),
     );
   }
@@ -68,7 +57,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  //ログイン状態のチェック(非同期で行う)
+  //ログイン状態のチェック(非同期)
   void checkUser(BuildContext context) async {
     final User? currentUser = await auth.currentUser;
     final userState = Provider.of<UserState>(context, listen: false);
@@ -88,13 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
-        child: Container(
-          child: Text("Loading..."),
-        ),
+        child: Text("Loading..."),
       ),
     );
   }
-
 }

@@ -12,9 +12,10 @@ class MyDrawer {
   統一のPaddingサイズの定義
   使い方:
    */
-  static EdgeInsets paddingSize(){
+  static EdgeInsets paddingSize() {
     return EdgeInsets.all(Dimensions.width20);
   }
+
   /*
   自動ログインパスワード保管用(片瀬)
   使い方:
