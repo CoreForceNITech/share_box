@@ -14,3 +14,12 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+K's メモ
+新規会員登録から初回登録してもらうと、ログアウトしない限りログイン状態を維持して編集ができるので開発用バックドア消しました。
+
+次回ミーティング
+4/11 シェアスペース
+
+やること
+学生メールを@nitech.ac.jpのみにする。
