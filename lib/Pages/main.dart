@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:provider/provider.dart';
 import 'package:share_box/Pages/home.dart';
 import 'package:share_box/my_class/firebase_auth_error.dart';
 import 'package:share_box/my_class/firebase_auth_login.dart';
@@ -15,6 +16,7 @@ import 'package:share_box/utils/dimensions.dart';
 final FirebaseAuth auth = FirebaseAuth.instance;
 
 void main() async {
+  //firebaseの呼び出し
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   //エラーを検出したら強制修了
@@ -129,10 +131,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   onPressed: () async {
-                    //_formKey.currentState!.validate();
-                    //_formPWKey.currentState!.validate();
+                    //フォームの入力内容を代入
                     _id = idController.text;
                     _password = passwordController.text;
+
                     final FirebaseAuthResultStatus signInResult =
                         await FirebaseLogin.signInId(_id, _password);
                     if (signInResult != FirebaseAuthResultStatus.Successful) {
@@ -142,7 +144,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       FirebaseLogin.showErrorDialog(context, errorMessage);
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Login successful')));
+                          const SnackBar(content: Text('正常にログインしました。')));
                       await MyDrawer.movePage(context, Home());
                     }
                   },

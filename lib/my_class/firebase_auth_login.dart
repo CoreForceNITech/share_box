@@ -13,7 +13,6 @@ class FirebaseLogin {
     try {
       UserCredential userCredential = await auth.signInWithEmailAndPassword(
           email: email, password: password);
-      print('succeed');
       // ignore: unnecessary_null_comparison
       if (userCredential.user! != null) {
         result = FirebaseAuthResultStatus.Successful;
@@ -21,7 +20,6 @@ class FirebaseLogin {
         result = FirebaseAuthResultStatus.Undefined;
       }
     } on FirebaseAuthException catch (e) {
-      print(e.code);
       result = FirebaseAuthExceptionHandler.handleException(e);
     }
     return result;
