@@ -16,10 +16,14 @@ For help getting started with Flutter, view our
 samples, guidance on mobile development, and a full API reference.
 
 K's メモ
+
 新規会員登録から初回登録してもらうと、ログアウトしない限りログイン状態を維持して編集ができるので開発用バックドア消しました。
 
 次回ミーティング
 4/11 シェアスペース
 
 やること
+
 学生メールを@nitech.ac.jpのみにする。
+
+新規会員登録時に創造工以外は自動で学部が入力されるようにする(switch文)
