@@ -53,33 +53,12 @@ class _NewRegisterState extends State<NewRegister> {
                 Text(
                   '現時点では、このサービスを利用できるのは名工大生のみです。',
                   style: TextStyle(
-                    fontSize: Dimensions.font14,
+                    fontSize: Dimensions.font16,
                     color: Colors.red,
                   ),
                 ),
-                Row(
-                  children: <Widget>[
-                    Checkbox(
-                      activeColor: Colors.blueAccent,
-                      value: _isCheck,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _isCheck = value!;
-                        });
-                      },
-                    ),
-                    const SizedBox(width: 5),
-                    Text(
-                      'あなたは名工大の学生ですか。',
-                      style: TextStyle(
-                        fontSize: Dimensions.font14,
-                      ),
-                    ),
-                  ],
-                ),
                 Column(
                   children: <Widget>[
-                    if (_isCheck == true)
                       TextFormField(
                         controller: nitIdController,
                         decoration: const InputDecoration(
@@ -92,7 +71,7 @@ class _NewRegisterState extends State<NewRegister> {
                               _nitId = text;
                             });
                           }
-                        },
+                        }
                       ),
                     if (_nitId.indexOf('8') == 4 || _nitId.indexOf('9') == 4)
                       Text(
@@ -135,6 +114,34 @@ class _NewRegisterState extends State<NewRegister> {
                       decoration: const InputDecoration(
                         hintText: 'please enter your password again',
                         labelText: 'パスワードの確認',
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  children: <Widget>[
+                    Checkbox(
+                      activeColor: Colors.blueAccent,
+                      value: _isCheck,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _isCheck = value!;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 5),
+                    Text(
+                      'プライバシーポリシー/利用規約',
+                      style: TextStyle(
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                        fontSize: Dimensions.font16,
+                      ),
+                    ),
+                    Text(
+                      'に同意する。',
+                      style: TextStyle(
+                        fontSize: Dimensions.font16,
                       ),
                     ),
                   ],
