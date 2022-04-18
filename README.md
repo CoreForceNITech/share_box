@@ -17,6 +17,9 @@ samples, guidance on mobile development, and a full API reference.
 
 K's メモ
 
+flutterCLIの登録が必要。
+https://firebase.google.com/docs/cli#sign-in-test-cli
+
 新規会員登録から初回登録してもらうと、ログアウトしない限りログイン状態を維持して編集ができるので開発用バックドア消しました。
 
 次回ミーティング
@@ -24,7 +27,7 @@ K's メモ
 
 やること
 
-4/8
+
 
 学生メールを@nitech.ac.jpのみにする。
 
@@ -32,7 +35,6 @@ K's メモ
 
 プライバシーポリシー/利用規約の承認ボタン
 
-4/9
 
 二段階認証の実装
 
