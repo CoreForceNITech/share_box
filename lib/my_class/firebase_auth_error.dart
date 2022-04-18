@@ -22,7 +22,10 @@ enum FirebaseAuthResultStatus {
 }
 
 class FirebaseAuthExceptionHandler {
+  // ignore: prefer_typing_uninitialized_variables
+  static var errorMessage;
   static FirebaseAuthResultStatus handleException(FirebaseAuthException e) {
+    errorMessage  = e;
     FirebaseAuthResultStatus result;
     switch (e.code) {
       case 'invalid-email':
@@ -80,7 +83,7 @@ class FirebaseAuthExceptionHandler {
         message = '要求が多すぎます。';
         break;
       case FirebaseAuthResultStatus.Undefined:
-        message = '不明なエラーが発生しました。';
+        message = '不明なエラーが発生しました。'+errorMessage.code;
         break;
     }
     return message;
